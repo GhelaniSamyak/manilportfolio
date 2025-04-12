@@ -1,0 +1,152 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Fonts & Colors */
+  :root {
+    --green: #617129;
+    --cream: #fefae0;
+    --highlight: #FA8334;
+    --dark: #2d2d2d;
+    --light-orange: #FFD580;
+    --white: #ffffff;
+    --blue: #2d4d78;
+    --light-blue: #A5C9E3;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: 
+      linear-gradient(135deg, #3b0a50, #ff5f6d),
+      url('https://www.transparenttextures.com/patterns/subtle-grunge.png');
+    background-blend-mode: overlay;
+    background-size: auto;
+    background-repeat: repeat;
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  /* Navbar */
+  .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .nav.scrolled {
+    background: rgba(45, 77, 120, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+  }
+  
+  /* Inner nav content */
+  .nav-content {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0.6rem 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav .logo img {
+    height: 60px;
+    width: auto;
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav ul li a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: medium;
+    color: var(--light-blue);
+    transition: color 0.3s;
+  }
+  
+  .nav ul li a:hover {
+    color: var(--highlight);
+  }
+  
+  /* About Section */
+  .about {
+    padding: 4rem 2rem;
+    
+    text-align: center;
+  }
+  
+  .about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  
+  .about-left {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  
+  .about-left h1 {
+    font-size: 3rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+  
+  .about-left p {
+    font-size: 1.25rem;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+  
+  .about-right {
+    flex: 1;
+    padding-left: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-image img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-left {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+  
+    .about-right {
+      padding-left: 0;
+    }
+  
+    .about-image img {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  

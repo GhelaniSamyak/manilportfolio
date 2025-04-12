@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Me - Manil Jhaveri</title>
+<link rel="stylesheet" href="style.css" />  
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap"
+rel="stylesheet"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="custom-cursor" id="cursor"></div>
+
+<!-- Navbar -->
+<nav class="nav">
+<div class="nav-content">
+    <div class="logo">
+    <a href="index.html"><img src="assets/logo.png" alt="Logo" /></a>
+    </div>
+    <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="work.html">Creatives</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+</nav>
+
+<!-- About Hero -->
+<section class="about-hero">
+<div class="about-container">
+    <div class="about-image">
+        <img src="assets/manil3.PNG" alt="Manil Jhaveri" />
+    </div>
+    <div class="about-text">
+    <h1>MANIL JHAVERI</h1>
+    <p>
+        Hi, I'm Manil, an advertising enthusiast and creative thinker based in London. Originally from India, with stints in Leicester, I've been immersed in diverse cultural contexts that have shaped my approach to advertising.
+    </p>
+    <p>
+        Having studied media and advertising while working various design and advertising roles, I've honed my skills in creating innovative and audience-centric campaigns. My passion for visual storytelling, combined with my background in photography, allows me to craft compelling narratives that resonate with audiences on a deeper level.
+    </p>
+    <p>
+        Outside of the advertising world, I'm also a skilled dhol instrument player, bringing rhythm and energy to any project or collaboration. With a keen eye for detail and a knack for capturing moments, I strive to create impactful campaigns that leave a lasting impression.
+    </p>
+    <p>
+        I believe advertising goes beyond selling products; it's about solving problems creatively and fostering societal change. My goal is to move away from data-centric approaches and focus on crafting impactful, long-term solutions that resonate with consumers.
+    </p>        
+        <div class="skills-icons">
+        <div class="skill">
+        <img src="assets/strategy1.png" alt="Strategic Thinking" />
+        <p>Strategic Thinking</p>
+        </div>
+        <div class="skill">
+        <img src="assets/rhythm.png" alt="Rhythm" />
+        <p>Rhythm</p>
+        </div>
+        <div class="skill">
+        <img src="assets/creativity.png" alt="Creativity" />
+        <p>Creativity</p>
+        </div>
+        <div class="skill">
+        <img src="assets/copywriting.png" alt="Copywriting" />
+        <p>Copywriting</p>
+        </div>
+
+        <section class="dhol-pad-section">
+            <h2>Try the Dhol! </h2>
+            <br>
+            <div class="dhol-pad" onclick="playDhol()">
+                <img src="assets/dhol2.png" width="325" height="220" />        
+            </div>
+            </h2>
+            </section>
+    
+    </div>
+    </div>
+</div>
+</section>
+<script>
+function playDhol() {
+    const audio = new Audio('sounds/dhol-beat.mp3');
+    audio.play();
+}
+</script>
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 Manil Jhaveri. All Rights Reserved.</p>
+    </footer>
+    
+    <!-- JS files (for animations) -->
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+      <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      const heroHeight = document.querySelector('.hero').offsetHeight;
+  
+      if (window.scrollY > heroHeight * 0.5) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+
+    
+</body>
+</html>

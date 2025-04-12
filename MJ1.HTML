@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manil Jhaveri | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+  <div class="hero">
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Achievements</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <section class="dhol-image-section">
+      <img src="assets/Dhol.png" alt="Dhol Image" class="tilting-dhol" />
+    </section>
+    
+    <section id="who-is-manil" class="reveal delay-1">
+      <h2>Who is Manil?</h2>
+      <p>Manil Jhaveri is a multidisciplinary creative exploring the intersections of design, storytelling, and identity through visual narratives.</p>
+    </section>
+    
+    <section id="selected-work" class="reveal delay-2">
+      <h2>Selected Work</h2>
+      <div class="work-items">
+        <!-- Add your portfolio or project thumbnails/cards here -->
+        <div class="project-card">Project 1</div>
+        <div class="project-card">Project 2</div>
+        <div class="project-card">Project 3</div>
+      </div>
+    </section>
+    
+    <section id="about" class="reveal delay-3">
+      <h2>About</h2>
+      <p>With a passion for visual culture and layered storytelling, Manil’s work spans illustration, creative direction, and experience design.</p>
+    </section>
+    
+    <section id="contact" class="reveal delay-4">
+      <h2>Contact</h2>
+      <p>Interested in collaborating or just want to say hi?</p>
+      <ul class="contact-links">
+        <li><a href="mailto:hello@maniljhaveri.com">Email</a></li>
+        <li><a href="https://instagram.com/manil" target="_blank">Instagram</a></li>
+        <li><a href="https://linkedin.com/in/manil" target="_blank">LinkedIn</a></li>
+      </ul>
+    </section>
+    <script>
+      const reveals = document.querySelectorAll('.reveal');
+    
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Animate only once
+          }
+        });
+      }, { threshold: 0.1 });
+    
+      reveals.forEach(reveal => {
+        observer.observe(reveal);
+      });
+    </script>
+        
+</body>
+</html>

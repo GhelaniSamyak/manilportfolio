@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact Me - Manil Jhaveri</title>
+<link rel="stylesheet" href="style.css" />  
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap"
+rel="stylesheet"
+/>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="custom-cursor" id="cursor"></div>
+
+<!-- Navbar -->
+<nav class="nav">
+<div class="nav-content">
+    <div class="logo">
+    <a href="index.html"><img src="assets/logo.png" alt="Logo" /></a>
+    </div>
+    <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="work.html">Creatives</a></li>
+    <li><a href="achievements.html">Achievements</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+</nav>
+
+<!-- About Hero -->
+<section class="about-hero">
+<div class="contact-container">
+    <div class="about-text">
+    <h1>get in touch.
+    </h1>
+    <p>
+        Ready to embark on your visual journey? Let's craft your story
+        together. Reach out, and let's paint your narrative with vibrant
+        visuals. I'm here to bring your creative dreams to life. Get in
+        touch and let's weave wonders into your visual story!
+    </p>
+    <p>P.S. All the below images are interactive and clickable for enhanced user navigation.</p>
+    <p>
+        <div class="dhol-pad">
+        <a href="https://www.youtube.com/@ManilJhaveri">  <img src="assets/yt.png" width="325" height="220" style="padding: 10px;" />
+        </a>
+        </div>
+        <div class="dhol-pad">
+        <a href="https://www.linkedin.com/in/maniljhaveri/">  <img src="assets/linkedin.png" width="335" height="220" style="padding: 10px;" />
+        </div>
+        </a>
+        <div class="dhol-pad">
+        <a href="https://www.instagram.com/manil.jhaveri/">  <img src="assets/insta.png" width="400" height="230" style="padding: 20px;" />
+            </a>
+        </div>
+
+        <br>
+                📞+44 7448 494 388<br>
+                ✉️maniljatinjhaveri@gmail.com<br>
+                📍London, UK.
+                    </div>
+        </div>
+    </div>
+
+
+        <div class="about-image">
+            <img src="assets/contact_img.png" alt="Manil Jhaveri" />
+        </div>
+    
+    
+</section>
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 Manil Jhaveri. All Rights Reserved.</p>
+    </footer>
+    
+
+      <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      const heroHeight = document.querySelector('.hero').offsetHeight;
+  
+      if (window.scrollY > heroHeight * 0.5) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+    <!-- JS files (for animations) -->
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    
+</body>
+</html>
