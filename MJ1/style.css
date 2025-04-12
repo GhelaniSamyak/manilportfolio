@@ -1,0 +1,828 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonts & Colors */
+:root {
+  --green: #617129;
+  --cream: #fefae0;
+  --highlight: #FA8334;    /* Vibrant Orange */
+  --dark: #2d2d2d;
+  --light-orange: #FFD580;
+  --white: #ffffff;
+  --blue: #2d4d78;
+  --light-blue: #A5C9E3;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: 
+    linear-gradient(135deg, #3b0a50, #ff5f6d),
+    url('https://www.transparenttextures.com/patterns/subtle-grunge.png');
+  background-blend-mode: overlay;
+  background-size: auto;
+  background-repeat: repeat;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--highlight);
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  z-index: 9999;
+}
+
+/* Full-width navbar */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: transparent;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav.scrolled {
+  background: rgba(45, 77, 120, 0.9);  /* This will be applied after scrolling */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+
+/* Inner nav content */
+.nav-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0.6rem 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.nav .logo img {
+  height: 60px;
+  width: auto;
+}
+
+/* Nav links */
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: medium;
+  color: var(--light-blue);
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: var(--highlight);
+}
+
+.footer {
+  background: rgba(45, 77, 120, 0.9);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15); /* flipped shadow for footer */
+  backdrop-filter: blur(6px);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Section */
+
+
+/* ===== Hero Section Responsiveness ===== */
+
+/* Adjust responsiveness */
+@media (max-width: 1024px) {
+  .hero-left, .hero-right {
+    flex: 1 1 100%;
+  }
+
+  .dhol-image {
+    width: 90px;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-top: 4rem;
+  }
+
+  .hero-left {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+
+  .hero-right {
+    order: 2;
+    align-items: center;
+    text-align: center;
+  }
+
+  .dhol-image {
+    width: 70px;
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left {
+    order: 1;
+    width: 100%;
+  }
+
+  .hero-right {
+    order: 2;
+    margin-top: 3rem;
+    padding: 0 1rem;
+  }
+
+  .dhol-image {
+    width: 50px;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+}
+
+/* General adjustments for flex-based responsive layout */
+.hero {
+  display: flex;
+  align-items: center;  /* Changed from flex-end to center */
+  justify-content: space-between;
+  padding: 0 5%;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;  /* Ensures full width */
+}
+
+.hero-left, .hero-right {
+  flex: 1;  /* Ensures both sides take up equal space */
+  display: flex;
+  align-items: center;  /* Centers content vertically inside each */
+  justify-content: center;  /* Centers content horizontally */
+}
+
+/* Dhol image top-left fixed & resizable */
+.dhol-image {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 90px;
+  height: auto;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;  /* Changed from flex-end to center */
+  justify-content: space-between;
+  padding: 0 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  overflow: hidden; /* 🔒 Keep things inside bounds */
+  position: relative;
+  z-index: 1;
+}
+
+
+.bottom-right-image-section {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 0rem; /* Optional: adds some spacing from the edges */
+
+  z-index: 0; /* Place below text but above background */
+}
+
+.bottom-right-image {
+  height: -500px;
+  width: 65%;
+  opacity: 0.5;
+}
+
+.bottom-left-image-section {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding-left: 0rem; /* Optional: adds some spacing from the edges */
+
+  z-index: 0; /* Place below text but above background */
+}
+
+.bottom-left-image {
+  height: 30vh;     /* Just like hero image */
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 600px; /* ✅ Prevents overflow */
+  padding: 1rem 2rem;
+
+  margin-left: auto; /* Pushes text to right nicely */
+}
+
+/* Overlapping Name */
+/* Overlapping Name Container */
+.overlap-container {
+  padding-right: 3rem; /* Add some breathing room */
+  position: relative;
+  text-align: right;
+  line-height: 1.1;
+  width: 100%;             /* ensure full width */
+  padding-right: 1vw;      /* optional spacing from right edge */
+}
+
+/* Name Rows */
+.row {
+  display: flex;
+  justify-content: flex-end;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  will-change: transform, opacity;  /* smoother animation performance */
+  transform: translateY(0);         /* lock final transform value */
+  max-width: 100%;
+  margin-left: auto;                /* ensure it pushes right */
+}
+
+/* Individual Letters */
+.row span {
+  font-size: 8vw;
+  text-shadow: -0.2em 0.03em 0.12em rgba(0, 0, 0, 0.7);
+  line-height: 1;
+  margin-right: -0.02em;            /* slight overlap */
+}
+
+/* First Row (e.g. "manil") */
+.first-row {
+  color: #ffffff;
+  animation: fadeUp 2.2s ease-out forwards;
+  z-index: 1;
+}
+
+/* Second Row (e.g. "jhaveri") - Appears Above */
+.second-row {
+  color: #45cfdf;
+  animation: fadeUp 3.4s ease-out forwards;
+  margin-top: -4vw;                /* vertical overlap */
+  z-index: 2;
+}
+
+/* Animation Keyframes */
+@keyframes fadeUp {
+  0% {
+    transform: translate3d(0, 30px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.dhol-image-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+  position: relative; /* <-- this is crucial */
+  top: 50px;          /* <-- increase this if you want it higher */
+
+}
+
+.tilting-dhol {
+  width: 200px;
+  animation: tiltAnimation 4s infinite ease-in-out;
+  transform-origin: center bottom;
+  display: inline-block;
+
+}
+
+/* Keyframes for tilting */
+@keyframes tiltAnimation {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.camera-image-section {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-25%) translateY(-115%);
+  text-align: center;
+  z-index: 2;
+}
+
+.tilting-camera {
+  width: 200px;
+  animation: tiltAnimation 4s infinite ease-in-out;
+  transform-origin: center bottom;
+  display: inline-block;
+
+}
+
+
+/* Tagline & Button */
+.tagline-wrapper {
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+.tagline {
+  max-width: 1500px;
+  margin: 0 auto;
+  text-align: right;
+
+  font-size: 3.0rem;
+  margin-bottom: 2rem;
+  color: var(--white);
+}
+
+.btn {
+  background: var(--highlight);
+  color: var(--dark);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background: white;
+  color: var(--highlight);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .row {
+    justify-content: center;
+  }
+
+  .tagline-wrapper {
+    text-align: center;
+  }
+}
+
+/* Showcase Section */
+.showcase {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--blue); /* updated from --olive */
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1500px;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.gallery-item {
+  width: 100%;
+  max-width: 300px;
+  height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Stacks image and description vertically */
+  justify-content: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  margin-bottom: 20px; /* Space between each item */
+
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.description {
+  margin-top: 10px; /* Space between the image and the text */
+  font-size: 1rem; /* Adjust font size as needed */
+  text-align: center; /* Centers the text below the image */
+  color: #333; /* Choose text color */
+  padding: 0 1rem; /* Add some padding if the text is too close to the edges */
+
+}
+
+.gallery1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1500px;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.gallery-item1 {
+  width: 100%;
+  height:min-content;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Stacks image and description vertically */
+  justify-content: flex-start; /* Ensures the content stays at the top */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  margin-bottom: 20px; /* Space between each item */
+
+}
+
+.gallery1-img {
+  width: 100%; /* Ensure the image fills the container horizontally */
+  height: auto; /* Let the image maintain its aspect ratio */
+  max-height: 250px; /* Restrict image height to ensure it doesn’t overflow */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+  border-radius: 8px; /* Optional: add rounded corners to the image */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.gallery-item1:hover .gallery-img {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item1:hover {
+  transform: scale(1.05);
+}
+
+/* Ensure image doesn't break layout */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  max-height: 100%;
+  position: relative; /* <-- this is crucial */
+  left: 0px;          /* <-- increase this if you want it left side */
+
+  overflow: hidden;
+}
+
+.hero-image img {
+  /* height: auto; */
+  max-width: 100%;          /* Never exceed container */
+  height: 87vh;         /*  Always 75% of screen height */
+  width: auto;
+  object-fit: cover;      /* Keeps image nicely scaled */
+  border: none;
+  box-shadow: none;
+}
+
+
+
+/* Button Styles */
+.btn {
+  background: var(--highlight);
+  color: var(--dark);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  background: var(--blue);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.btn.dark {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* Container Utility */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Achievements Preview */
+.achievements-preview ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+
+  line-height: 2rem;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Section padding */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero {
+    flex-direction: column; /* Stack image and text on mobile */
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 80%; /* Reduce image size for mobile */
+    height: 50%; /* Adjust image height */
+  }
+
+  .hero-text {
+    max-width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .first-row,
+  .second-row {
+    font-size: 10vw; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .gallery1 {
+    grid-template-columns: 1fr;
+  }
+  .first-row,
+  .second-row {
+    font-size: 12vw; /* Further reduce font size for extra small screens */
+  }
+
+}
+
+/* Animations */
+@keyframes fadeUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------------- */
+
+/* ABOUT PAGE HERO */
+.about-hero {
+  min-height: 100vh;
+  padding: 7rem 5%;
+  background: 
+    linear-gradient(135deg, #3b0a50, #ff5f6d),
+    url('https://www.transparenttextures.com/patterns/subtle-grunge.png');
+  background-blend-mode: overlay;
+  background-size: auto;
+  background-repeat: repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.about-container {
+  display: flex;
+  margin-top: 0;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: top;
+  gap: 3rem;
+}
+
+.about-image img {
+  max-width: 452px;
+  border-radius: 16px;
+  box-shadow: 0 ;
+}
+
+.about-text {
+  max-width: 700px;
+}
+
+.about-text h1 {
+  font-size: 3rem;
+  color: var(--highlight);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f0f0f0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  
+
+/* Skills Icons Section */
+.skills-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  max-width: 120px;
+  opacity: 0;
+  transform: scale(0.9);  /* Skill icon initial state for JS animations */
+
+}
+
+
+.skill img {
+  width: 48px;
+  height: auto;
+  margin-bottom: 0.5rem;
+  filter: brightness(0) invert(1);
+}
+
+.skill p {
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .about-text h1 {
+    text-align: center;
+  }
+
+  .skills-icons {
+    justify-content: center;
+  }
+}
+
+/* ----------------------------------------------------------- */
+
+.contact-container {
+  display: flex;
+  padding: 1rem 5%;
+  margin-top: 0;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: top;
+  gap: 3rem;
+}
+
+/* ----------------------------------------------------------- */
+
+.dhol-pad-section {
+  background: var(--bg-dark);
+  text-align: center;
+  padding:  1rem;
+  color: white;
+}
+
+.dhol-pad {
+  display: inline-block;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.dhol-pad:hover {
+  transform: scale(1.1);
+}
+
+
+.contact-
+/* Contact PAGE HERO */
+.contact-hero {
+  min-height: 100vh;
+  padding: 7rem 5%;
+  background: 
+    linear-gradient(135deg, #3b0a50, #ff5f6d),
+    url('https://www.transparenttextures.com/patterns/subtle-grunge.png');
+  background-blend-mode: overlay;
+  background-size: auto;
+  background-repeat: repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
